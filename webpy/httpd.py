@@ -46,7 +46,8 @@ urls = (
   '/login', 'webctx.login',
   '/example', 'webctx.example',
   '/food', 'webctx.food',
-  '/sport', 'webctx.sport'
+  '/sport', 'webctx.sport',
+  '/body', 'webctx.body'
 )
 
 # default session values

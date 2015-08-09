@@ -1,0 +1,91 @@
+$def with ()
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Body</title>
+	<script type="application/javascript" src="static/js/example.js"></script>
+	<script type="application/javascript" src="static/js/createtable.js"></script>
+		<script type="application/javascript" src="static/js/edittable.js"></script>
+	<link rel="stylesheet" type="text/css" href="static/css/example.css">
+	<!-- Nur unter Folter... -->
+	<script type="application/javascript" src="static/jquery-2.1.3.min.js"></script>
+	<!-- Bootstrap -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<h1>Body</h1>
+
+<div id="myForm" class="container">
+	<table>
+	<tr>
+		<td>Datum und Zeit</td>
+		<td><input id="targettime" type="datetime-local" name="date"></td>
+	</tr>
+	<tr>
+		<td>Lower leg</td>
+		<td><input id="lowerleg" type="number" name="lowerleg" min="5" max="2000" step="0.1" placeholder="100" required autofocus></td>
+	</tr>
+	<tr>
+		<td>Thigh</td>
+		<td><input id="thigh" type="number" name="thigh" min="5" max="2000" step="0.1" placeholder="100"></td>
+	</tr>
+	<tr>
+		<td>Butt</td>
+		<td><input id="butt" type="number" name="butt" min="5" max="2000" step="0.1" placeholder="100"></td>
+	</tr>
+	<tr>
+		<td>Belly</td>
+		<td><input id="belly" type="number" name="belly" min="5" max="2000" step="0.1" placeholder="100"></td>
+	</tr>
+	<tr>
+		<td>Chest</td>
+		<td><input id="chest" type="number" name="chest" min="5" max="2000" step="0.1" placeholder="100"></td>
+	</tr>
+	<tr>
+		<td>Shoulder</td>
+		<td><input id="shoulder" type="number" name="shoulder" min="5" max="2000" step="0.1" placeholder="100"></td>
+	</tr>
+	<tr>
+		<td>Neck</td>
+		<td><input id="neck" type="number" name="neck" min="5" max="2000" step="0.1" placeholder="100"></td>
+	</tr>
+	<tr>
+		<td>Upper arm</td>
+		<td><input id="upperarm" type="number" name="upperarm" min="5" max="2000" step="0.1" placeholder="100"></td>
+	</tr>
+	<tr>
+		<td>forearm</td>
+		<td><input id="forearm" type="number" name="forearm" min="5" max="2000" step="0.1" placeholder="100"></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><input type="submit" value="Senden" onclick="send_formbody(this)"></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><input type="submit" value="Reset" onclick="reset_formbody(this)"></td>
+	</tr>
+	</table>
+</div>
+<div id="console">
+	<span class="label">Network Status: </span>
+	<span id="info">N/A</span>
+</div>
+
+<hr size="1"/>
+<a href="http://vanilla-js.com/"><img src="http://vanilla-js.com/assets/button.png" alt="100% Vanilla JS Compatible"
+     style="vertical-align: middle"/></a>
+<small>Now 100% Vanilla JS Compatible; Ju5t b3caUse wE cAn xD</small>
+</div>
+</body>
+<script>
+reset_formbody();
+</script>
+</html>

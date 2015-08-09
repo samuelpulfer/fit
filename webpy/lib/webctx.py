@@ -328,3 +328,28 @@ class sport(webctx):
 			return json2db.insertcalories(session.uid, web.data())
 		except:
 			return '{"error": 1}'
+			
+class body(webctx):
+	def GET(self):
+		if not self.auth_check():
+			return self.render().login()
+		render = web.template.render('template')
+		return render.body()
+		
+	def POST(self):
+		if not self.auth_check():
+			return self.render().login()
+		
+		web.header('Content-Type', 'application/json')
+		try:
+			pass
+			post = json.loads(web.data())
+			return json2db.insertbodymass(session.uid, web.data())
+		except:
+			return '{"error": 1}'
+			
+			
+			
+			
+			
+			
