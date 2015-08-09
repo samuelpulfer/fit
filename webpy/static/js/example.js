@@ -26,7 +26,7 @@ function send_form(obj) {
 	}
 	
 	var r = new XMLHttpRequest();
-	r.open("POST", "/example", true);
+	r.open("POST", "/food", true);
 	r.setRequestHeader("Content-Type","application/json; charset=utf-8");
 	r.onreadystatechange = function () {
 		switch (r.readyState) {
@@ -91,7 +91,7 @@ function send_form2(obj) {
 	}
 	
 	var r = new XMLHttpRequest();
-	r.open("POST", "/example", true);
+	r.open("POST", "/sport", true);
 	r.setRequestHeader("Content-Type","application/json; charset=utf-8");
 	r.onreadystatechange = function () {
 		switch (r.readyState) {
