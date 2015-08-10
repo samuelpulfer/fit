@@ -16,7 +16,7 @@ $def with ()
 <body>
 	<script type="text/javascript" charset="utf-8">
 	/* place for webix.ui */
-	
+/*	
 	webix.ready(function(){
 		webix.ui({
     type:"line",
@@ -34,6 +34,88 @@ $def with ()
     ]
 });
 	});
+	*/
+	
+
+var today = new Date();
+
+//webix.ajax().post("some.php", form.getValues(), function(text, data, xhr){ });
+function formatLocalDate() {
+    var now = new Date(),
+        tzo = -now.getTimezoneOffset(),
+        dif = tzo >= 0 ? '+' : '-',
+        pad = function(num) {
+            var norm = Math.abs(Math.floor(num));
+            return (norm < 10 ? '0' : '') + norm;
+        };
+    return now.getFullYear() 
+        + '-' + pad(now.getMonth()+1)
+        + '-' + pad(now.getDate())
+        + 'T' + pad(now.getHours())
+        + ':' + pad(now.getMinutes()) 
+        + ':' + pad(now.getSeconds());
+}
+
+function submitForm(obj, target) {
+	//either validate the whole form
+	//this.getParentForm().validate(); 
+	//or validate this element only
+	//this.validate();
+	//alert("ouch")
+	/*
+	console.log(formobj.getValues())
+	webix.ajax().post(target, formobj.getValues(), function(text, data, xhr){
+	console.log(text);
+	console.log(data)
+	console.log(xhr)
+	
+	*/
+	console.log(this)
+	var data = this.getParentView().getParentView().getValues();
+	data.datetime = formatLocalDate(data.datetime)
+	myajax = webix.ajax();
+	myajax.headers({
+    'Content-type': 'application/json'
+	});
+	myajax.post("/target", JSON.stringify(data), function(text, data, xhr){
+	//webix.ajax().post("/target", JSON.stringify(data), function(text, data, xhr){
+		console.log(text)
+		console.log(data)
+		console.log(xhr)
+	});
+}
+
+form = webix.ui({
+		view:"form", 
+		id:"log_form",
+		width:300,
+		elements:[
+				{ view:"datepicker", date: today, value: today, label: 'Select Date', timepicker:true, name: "datetime"},
+				{ view:"text", type: "number", attributes: {step: "10", min: "50", max: "50000"}, label:"Kalorien", name: "kal"},
+				{ view:"text", label:"Bemerkung", name: "comment"},
+				{ margin:5, cols:[
+				    { view:"button", value:"Speichern", type:"form", id: "speichern", click: "submitForm"},
+				    { view:"button", value:"Cancel" }
+				]}
+				]
+		});	
+		
+formmultiview = webix.ui({
+  view: "multiview",
+  	cells: [
+    	{form },
+    	{form },
+    	{id: "emptyView" }
+  	]
+	});
+
+webix.ready(function(){
+	form;
+	get = $$$$
+	//get("speichern").attachEvent("onClick", function() {alert("ouch")})
+	console.log(form)
+});	
+	
 	</script>
 </body>
 </html>
